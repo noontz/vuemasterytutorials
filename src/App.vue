@@ -3,8 +3,6 @@
     <div id="nav">
       <router-link :to="{ name: 'event-list' }">List</router-link>
       <span>&nbsp;|&nbsp;</span>
-      <router-link :to="{ name: 'event-show' }">View</router-link>
-      <span>&nbsp;|&nbsp;</span>
       <router-link :to="{ name: 'event-create' }">Create</router-link>
     </div>
     <router-view />
