@@ -17,5 +17,9 @@ export default new Vuex.Store({
 		]
 	},
 	mutations: {},
-	actions: {}
+	actions: {
+		catLength: state => {
+			return state.categories.length
+		}
+	}
 })
