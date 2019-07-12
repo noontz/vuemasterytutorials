@@ -14,9 +14,7 @@
 		<p>{{ event.description }}</p>
 		<h2>
 			Attendees
-			<span class="badge -fill-gradient">
-				{{ event.attendees ? event.attendees.length : 0 }}
-			</span>
+			<span class="badge -fill-gradient">{{ attendeesLength }}</span>
 		</h2>
 		<ul class="list-group">
 			<li
@@ -47,6 +45,11 @@ export default {
 			.catch(error => {
 				console.log('There was an error:' + error.response)
 			})
+	},
+	computed: {
+		attendeesLength() {
+			return this.event.attendees.length
+		}
 	}
 }
 </script>

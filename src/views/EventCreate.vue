@@ -6,11 +6,16 @@
 		<ul>
 			<li v-for="cat in categories" :key="cat">{{ cat }}</li>
 		</ul>
+		<p>Finished todos</p>
+		<ul>
+			<li v-for="todo in doneTodos" :key="todo.id">{{ todo }}</li>
+		</ul>
+		<p>{{ getEventById(1) }}</p>
 	</div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
 	computed: {
 		catLength() {
@@ -20,7 +25,8 @@ export default {
 			userName: state => state.user.name,
 			user: 'user',
 			categories: 'categories'
-		})
+		}),
+		...mapGetters(['getEventById', 'doneTodos'])
 	}
 }
 </script>
