@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-
+// expose global components that start with base
 const requireComponent = require.context(
 	'./components',
 	false,

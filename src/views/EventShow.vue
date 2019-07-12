@@ -14,9 +14,7 @@
 		<p>{{ event.description }}</p>
 		<h2>
 			Attendees
-			<span class="badge -fill-gradient">
-				{{ event.attendees ? event.attendees.length : 0 }}
-			</span>
+			<span class="badge -fill-gradient">{{ numberOfAttendees }}</span>
 		</h2>
 		<ul class="list-group">
 			<li
@@ -32,11 +30,12 @@
 
 <script>
 import EventService from '@/services/EventService.js'
+import { mapState } from 'vuex'
 export default {
 	props: ['id'],
 	data() {
 		return {
-			event: {}
+			event: { attendees: [] }
 		}
 	},
 	created() {
@@ -47,6 +46,12 @@ export default {
 			.catch(error => {
 				console.log('There was an error:' + error.response)
 			})
+	},
+	computed: {
+		numberOfAttendees() {
+			return event.attendees.length
+		},
+		...mapState(['user', 'categories'])
 	}
 }
 </script>
